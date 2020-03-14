@@ -1,0 +1,11 @@
+{% extends "base.html"%}
+{% block title%}Future Time{% endblock %}
+{% block content %}
+    The future time is {{ futuretime }}
+{% endblock %}
+{% block footer%}
+    {{ block.super }}
+    <hr />
+    <p>The future time footer</p>
+    <a href="{% url 'mysite-curtime' 10 %}">此URL地址为{% url "mysite-curtime" 10 %}</a>
+{% endblock %}

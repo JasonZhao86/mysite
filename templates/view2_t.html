@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load myfilters %}
+{% load mytags %}
+{% block title %}view2{% endblock %}
+{% block content %}
+    <h1>view_2's template</h1>
+    <ul>
+        <li>{{ app }}</li>
+        <li>{{ user }}</li>
+        <li>{{ ip_address }}</li>
+        <li>{{ message }}</li>
+    </ul>
+    <!--This will be escaped: {{ data }} <br />-->
+    <!--This will not be escaped: {{ data|safe }}-->
+    {{ data }} <br />
+    {% autoescape off %}
+       This will not be escaped: {{ data }}<br />
+        {% autoescape on %}
+            This will be escaped: {{ data }}<br />
+        {% endautoescape %}
+    {% endautoescape %}
+    {{ data|escape }}<br/>
+    {{ job|default:"<b><em>DevOps</em></b>"}}<br />
+    {{ job|default:"3&gt;2"}}<br />
+
+    {{ "somevariable"|cut:"variable" }}<br />
+    {{ "Dev"|add:"<b>Ops</b>" }}<br />
+
+    {% autoescape on %}
+        {{ "n<em>amesapce</em>"|initial_letter_first }}<br />
+    {% endautoescape %}
+
+    {{  datetime|businesshours }}</br>
+
+    {{ "百度https://www.baidu.com"|urlize|linebreaksbr }}<br />
+    {{ "爱奇艺https://www.iqiyi.com"|urlize_and_linebreaksbr }}<br />
+
+    {% curtime "%Y/%m/%d %H:%M:%S" %}<br />
+    <hr />
+
+    {% books_for_author author %}
+    {% get_messages %}
+{% endblock %}

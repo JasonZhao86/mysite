@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}view1{% endblock %}
+{% block content %}
+    <h1>view_1's template</h1>
+    <ul>
+        <li>{{ app }}</li>
+        <li>{{ user }}</li>
+        <li>{{ ip_address }}</li>
+        <li>{{ message }}</li>
+    </ul>
+    {{ csrf_token }} <br />
+    {{ user }} <br />
+    {{ messages }} <br />
+    {% for k,v in request.META.items %}
+        {{ k }}: {{ v }} <br />
+    {% endfor %}
+{% endblock %}

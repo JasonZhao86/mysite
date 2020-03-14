@@ -1,0 +1,9 @@
+{% extends "books/base.html" %}
+{% block title %}Author detail{% endblock %}
+{% block content%}
+    <dl>
+        <dt><h1>{{ object.first_name }} {{ object.last_name }}</h1></dt>
+        <dd>{{ object.email }}</dd>
+        <dd>{{ object.last_accessed }}</dd>
+    </dl>
+{% endblock %}

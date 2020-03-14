@@ -1,0 +1,14 @@
+{% extends "books/base.html" %}
+{% block title %}Publishers list{% endblock %}
+{% block header %}<h1>Publishers:</h1>{% endblock %}
+{% block content%}
+    <ul>
+        {# {% for publisher in object_list %} #}
+        {% for publisher in publishers %}
+        <li>
+            <label>{{ publisher.name }}:</label>
+            <a href="#nogo">{{ publisher.address }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
